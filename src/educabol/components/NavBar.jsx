@@ -2,39 +2,75 @@ import { NavLink } from "react-router-dom"
 import SearchIcon from '@mui/icons-material/Search';
 import { NavListDrawer } from "./NavListDrawer";
 import { useState } from "react";
-import { AppBar, Box, Drawer, Toolbar, Typography } from "@mui/material";
+import { AppBar,Tab, Box, Drawer,Button, IconButton, Toolbar, Typography, Tabs } from "@mui/material";
+import { MenuOpen } from "@mui/icons-material";
+
 
 const navLinks = [
     {
         title: "INICIO",
-        path: '/'
+        path: '/',
+        value: 0
     },
     {
         title: "CONTACTANOS",
-        path: '/'
+        path: '/',
+        value: 1
     },
     {
         title: "PLATAFORMAS",
-        path: '/'
+        path: '/',
+        value: 2
     },
 ]
 
 export const NavBar = () => {
     const [open, setopen] = useState(false)
+    const [page, setPage] = useState(0)
+
+    const handleChange = (e,value) => {
+        setPage(value);    
+    }
   return (
     <>
         <AppBar
             position="static"
+            
         >
-            <Toolbar>
-                <Typography sx={{flexGrow:0.4 }}>EDUCABOL</Typography>
-                <Box sx={{display: {xs:'none'}}}>
-                    <Typography>
+            <Toolbar
+                sx={{height:90}}
+            >
+                <IconButton
+                    color='#00000'
+                    size="large"
+                    onClick={()=>setopen(true)}
+                    sx={{display:{sm:'none',xs:'block'}}}
+                >
+                    <MenuOpen/>
+                </IconButton>
+                <Box>
+                    <Typography variant="h1" fontSize={50} sx={{padding:0.5, backgroundColor:'background.default', borderRadius:5}}>EDUCABOL</Typography>
+                </Box>
+                <Box sx={{display: {xs:'none', sm: 'block'}}} width='100%'>
+                    <Typography 
+                        component='div'
+                        width='100%'
+                        sx={{alignItems:'center', justifyItems:'center',justifyContent:'space-evenly',alignContent:'space-evenly',display:'flex'}}
+                    >
+                        <Tabs
+                            value={page}
+                            onChange={handleChange}
+                            textColor="secondary"
+                            indicatorColor="secondary"
+                            aria-label="secondary tabs example"
+                        >
                         {
-                            navLinks.map((item) => (
-                                <NavLink color="text.secondary" to={item.path} key={item.title}>{item.title}</NavLink>
+                            navLinks.map((item) => (                              
+                                <Tab key={item.title} value={item.value} label={item.title} sx={{fontSize:18}}/>
+                                
                             ))
                         }
+                        </Tabs>
                     </Typography>
                 </Box>
                 
@@ -42,11 +78,12 @@ export const NavBar = () => {
         </AppBar>
         <Drawer 
             open={open} 
-            anchor="right"
+            anchor="left"
             onClose={()=> setopen(false)}    
         >
             <NavListDrawer navlist={navLinks}/>
-        </Drawer>
+
+        </Drawer>   
     </>
     // <div className="container-fluid bg-light position-relative shadow">
     //     <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">

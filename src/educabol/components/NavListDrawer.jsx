@@ -1,4 +1,6 @@
-import { Box, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
+import { OtherHouses } from "@mui/icons-material"
+import { Box, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material"
+import { NavLink } from "react-router-dom"
 
 export const NavListDrawer = ({navlist}) => {
   return (
@@ -11,7 +13,7 @@ export const NavListDrawer = ({navlist}) => {
                             component="a"
                             href={item.path}
                         >
-                                <ListItemText primary={item.title}/>
+                                <NavLink color="text.black" to={item.path} key={item.title}>{item.title}</NavLink>
                         </ListItemButton>
                     </ListItem>
                 ))}

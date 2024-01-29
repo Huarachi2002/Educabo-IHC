@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-import { red } from "@mui/material/colors";
 
 export const PaletaTheme = createTheme({
     palette: {
@@ -17,6 +16,7 @@ export const PaletaTheme = createTheme({
         text: {
           primary: '#ffffff',
           secondary: '#006C82',
+          black: '#00000',
         },
       },
       typography: {

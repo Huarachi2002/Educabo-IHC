@@ -3,13 +3,15 @@ import { NavBar } from '../components'
 import { Link } from 'react-router-dom'
 import student from '../../img/estudent.jpeg';
 import { Requisitos } from '../components';
+import { Container } from '@mui/material';
 
 
 export const HomePage = () => {
   return (
-    <>
+    <Container sx={{bgcolor: 'Background.default'}}>
         <NavBar/>
-        <div className="container-fluid bg-primary px-0 px-md-1 overflow-x-hidden">
+        
+        {/* <div className="container-fluid bg-primary px-0 px-md-1 overflow-x-hidden">
             <div className="row align-items-center px-3">
                 <div className="col-lg-6 text-center text-lg-left">
                     <h1 className="display-3 font-weight-bold text-white">Cupos Para Estudiantes Nuevos</h1>
@@ -25,10 +27,10 @@ export const HomePage = () => {
                         <img className="img-fluid object-fit-contain m-2 img-thumbnail " width="80%" height="70%" src={student} alt=""/>
                     </div>
                 </div>
-            </div>  
+            </div>   */}
             <Requisitos/>
             
-        </div>
-    </>
+        {/* </div> */}
+    </Container>
   )
 }

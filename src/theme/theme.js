@@ -3,26 +3,32 @@ import { red } from "@mui/material/colors";
 
 export const PaletaTheme = createTheme({
     palette: {
-        primary:{
-            main: '#1696AF'
+        mode: 'light',
+        primary: {
+          main: '#ffffff',
         },
-        secondary:{
-            main: '#F38630'
-        },
-        colorFont:{
-            main: '#FFFFFF'
-        },
-        colorButtonBlack:{
-            main: '#000000'
-        },
-        colorButton:{
-            main: '#006C82'
+        secondary: {
+          main: '#5cb6c7',
         },
         background: {
-            main: '#17a2b8'
+          default: '#1696af',
+          paper: '#ffffff',
         },
-        error: {
-            main: red.A400
-        }
-    }
+        text: {
+          primary: '#ffffff',
+          secondary: '#006C82',
+        },
+      },
+      typography: {
+        fontFamily: 'Rubik',
+        h2: {
+          fontFamily: 'Rubik',
+        },
+        h3: {
+          fontFamily: 'Rubik',
+        },
+        h1: {
+          fontFamily: 'Handlee',
+        },
+      },
 })
